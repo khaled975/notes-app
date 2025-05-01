@@ -2,10 +2,10 @@ import { MdAdd } from "react-icons/md";
 import Navbar from "../../components/Navbar";
 import NoteCard from "../../components/NoteCard";
 import AddEditCard from "../../components/AddEditCard";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Modal from "react-modal";
 import { customAxios } from "../../utils/customAxios";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import EmptyCard from "../../components/EmptyCard";
 
@@ -83,12 +83,13 @@ function Home() {
     setIsSearch(false);
     getAllNotes();
   };
+
   useEffect(() => {
     getCurrentUser();
     getAllNotes();
 
     return () => {};
-  }, [navigate]);
+  }, []);
 
   // OPEN MODAL
   const onOpenModal = () => {
@@ -155,6 +156,10 @@ function Home() {
     }
   };
 
+  if (!userName) {
+    redirect("/login");
+    return;
+  }
   return (
     <div className="relative h-full">
       <Navbar
