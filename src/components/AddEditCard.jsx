@@ -113,7 +113,6 @@ function AddEditCard({ onClose, getAllNotes, noteData, type }) {
             className="input border-none text-slate-950 text-2xl "
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            disabled={type === "show"}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -129,23 +128,20 @@ function AddEditCard({ onClose, getAllNotes, noteData, type }) {
             rows={6}
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            disabled={type === "show"}
           />
         </div>
         <div>
           <label htmlFor="tags" className="input-label">
             tags
           </label>
-          <TagInput tags={tags} setTags={setTags} type={type} />
+          <TagInput tags={tags} setTags={setTags} />
         </div>
-        {type !== "show" && (
-          <button
-            className="btn"
-            onClick={type === "edit" ? handleEditNote : handleAddNote}
-          >
-            {type === "edit" ? "UPDATE" : "ADD"}
-          </button>
-        )}
+        <button
+          className="btn"
+          onClick={type === "edit" ? handleEditNote : handleAddNote}
+        >
+          {type === "edit" ? "UPDATE" : "ADD"}
+        </button>
         {error && <p className="text-sm text-red-600">{error}</p>}
       </div>
     </div>

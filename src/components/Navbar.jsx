@@ -12,7 +12,7 @@ function Navbar({ userName, onLogout, handleSearch, handleClearSearch }) {
 
   return (
     <header className="w-full shadow-md flex px-3 py-4">
-      <nav className="w-full flex items-center justify-between">
+      <nav className="w-full flex items-center justify-between gap-[8px] md:gap-0">
         <Link to="/" className="font-bold">
           NotesApp
         </Link>

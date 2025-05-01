@@ -2,7 +2,7 @@ import { MdAdd } from "react-icons/md";
 import Navbar from "../../components/Navbar";
 import NoteCard from "../../components/NoteCard";
 import AddEditCard from "../../components/AddEditCard";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { customAxios } from "../../utils/customAxios";
 import { redirect, useNavigate } from "react-router-dom";
